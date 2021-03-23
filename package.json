@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "prestart": "babel ./src --out-dir build",
-    "startdev": "nodemon --exec babel-node ./src/bin/www",
     "lint": "./node_modules/.bin/eslint ./src",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
     "postpretty": "npm lint --fix",
     "tsc": "tsc",
     "test": "jest --notify --verbose",
     "start": "node ./build/bin/www",
-    "dev": "npm run tsc && npm start"
+    "dev": "npm run tsc && npm start",
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@aws-cdk/aws-sns-subscriptions": "^1.93.0",
@@ -31,6 +31,7 @@
     "@types/morgan": "^1.9.1",
     "@types/uuid": "^8.3.0",
     "@types/ws": "^7.2.6",
+    "app-root-path": "^3.0.0",
     "axios": "^0.19.2",
     "bignumber.js": "^9.0.0",
     "body-parser": "^1.19.0",
@@ -58,8 +59,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "ts-loader": "^8.0.18",
     "ts-node-dev": "^1.0.0",
-    "webpack": "^5.4.0",
+    "webpack": "^5.27.2",
     "webpack-cli": "^4.2.0"
   }
 }
